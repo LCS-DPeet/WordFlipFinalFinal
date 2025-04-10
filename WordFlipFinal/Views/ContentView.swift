@@ -47,6 +47,18 @@ struct ContentView: View {
             
         }
     }
+   //MARK: Functions:
+    
+    func newGame() {
+        let images = ["h","i","j","k"]
+        let newDeck = (images + images).shuffled().map {
+            Card(cardImage: $0)}
+        card = newDeck
+        firstFlippedIndex = nil
+        score = 0
+    }
+    
+    
 }
 
 #Preview {
