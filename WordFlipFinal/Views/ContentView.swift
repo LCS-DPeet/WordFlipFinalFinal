@@ -38,7 +38,7 @@ struct ContentView: View {
                 Spacer()
                 
                 Button("New Game") {
-                    // add game in here
+                    newGame()
                 }
                 
                 
@@ -50,9 +50,13 @@ struct ContentView: View {
    //MARK: Functions:
     
     func newGame() {
+        //The card image options
         let images = ["h","i","j","k"]
+        //duplicates all images so theirs matches
         let newDeck = (images + images).shuffled().map {
+            //creates the card for each image
             Card(cardImage: $0)}
+        //resets cards +score, indicates no flipped card(nil)
         card = newDeck
         firstFlippedIndex = nil
         score = 0
