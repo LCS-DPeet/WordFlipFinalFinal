@@ -62,7 +62,31 @@ struct ContentView: View {
         score = 0
     }
     
-    
+    //MARK: Ai assisted code
+    func cardFlip(at index: Int) {
+        guard !card[index].faceUp, !card[index].cardMatched else { return }
+        card[index].faceUp = true
+        
+        if let firstIndex = firstFlippedIndex {
+            if card[firstIndex].cardImage == card[index].cardImage {
+                
+                card[firstIndex].cardMatched = true
+                card[index].faceUp = true
+                score += 1
+            } else {
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
+                    
+                    card[firstIndex].faceUp = false
+                    card[index].faceUp = false
+                }
+            }
+            
+            firstFlippedIndex = nil
+        } else {
+            firstFlippedIndex = index
+        }
+    }
 }
 
 #Preview {
