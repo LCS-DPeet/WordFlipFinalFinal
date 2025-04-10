@@ -7,15 +7,33 @@
 
 import SwiftUI
 
+struct Card: Identifiable {
+    let id = UUID()
+    let cardImage: String
+    var faceUp: Bool = false
+    var faceDown: Bool = false
+}
+
 struct ContentView: View {
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            
+            
+            Rectangle()
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
         }
-        .padding()
     }
 }
 
